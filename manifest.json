@@ -8,5 +8,5 @@
       "default_popup": "index.html",
       "default_title": "Incrementum"
     },
-    "permissions": ["activeTab"]
+    "permissions": ["webRequest", "webRequestBlocking", "<all_urls>", "storage"]
   }
