@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Incrementum",
+    "version": "1.0",
+    "description": "An Educational Chrome Extension",
+    "author": "Ben Budesheim, Carina Cook, Ethan Doan, and Edward Howell",
+    "action": {
+      "default_popup": "index.html",
+      "default_title": "Incrementum"
+    },
+    "permissions": ["activeTab"]
+  }
