@@ -8,5 +8,8 @@
       "default_popup": "index.html",
       "default_title": "Incrementum"
     },
-    "permissions": ["webRequest", "webRequestBlocking", "<all_urls>", "storage"]
+    "permissions": ["webRequest", "storage"],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
   }
+}
