@@ -20,6 +20,17 @@ function addWebsite(url) {
     console.log("URL BLOCKED: " + url);
 }
 
+function warningBanner(message) {
+    // Create Warning Banner
+    const warningMessage = document.createElement("div");
+    warningMessage.className = "alert alert-danger";
+    warningMessage.role = "alert";
+    warningMessage.textContent = message;
+
+    // Add Warning Banner
+    document.querySelector("#urlWarning").appendChild(warningMessage);
+}
+
 // Event listener for the submit button
 document.querySelector("#blockSite").addEventListener("click", function(event) {
     // Prevent default form submission action
@@ -30,37 +41,24 @@ document.querySelector("#blockSite").addEventListener("click", function(event) {
     
     // Check if the input is empty or only contains whitespace
     if (!url.trim()) {
-        // Create warning banner
-        const emptyUrlWarning = document.createElement("div");
-        emptyUrlWarning.className = "alert alert-danger";
-        emptyUrlWarning.role = "alert";
-        emptyUrlWarning.textContent = "URL Cannot Be Empty!";
-
-        // Add Warning Banner
-        document.querySelector("#urlWarning").appendChild(emptyUrlWarning);
-    
-        // Exit Clause
+        warningBanner("URL Cannot Be Empty!");
         return;
     }
     
     // Check if the input is formatted properly
     if (!url.includes("https://") || !url.includes(".com")) {
-        // Create warning banner
-        const formatWarning = document.createElement("div");
-        formatWarning.className = "alert alert-danger";
-        formatWarning.role = "alert";
-        formatWarning.textContent = "URL Cannot Be Empty!";
-        formatWarning.textContent = "Oops! Incorrect Formatting (https://incrementum.com)";
-
-        // Add Warning Banner
-        document.querySelector("#urlWarning").appendChild(formatWarning);
-
-        // Exit Clause
+        warningBanner("Oops! Incorrect Formatting (https://incrementum.com)");
         return;
     }
 
     // Save whitelist for local storage
     const whitelist = JSON.parse(localStorage.getItem("whitelist") || "[]");
+
+    if (whitelist.includes(url)) {
+        warningBanner("Website Already Blocked!");
+        return;
+    }
+    
     whitelist.push(url);
     localStorage.setItem("whitelist", JSON.stringify(whitelist));
 
