@@ -21,14 +21,25 @@ function addWebsite(url) {
 }
 
 function warningBanner(message) {
-    // Create Warning Banner
-    const warningMessage = document.createElement("div");
-    warningMessage.className = "alert alert-danger";
-    warningMessage.role = "alert";
-    warningMessage.textContent = message;
+    // Get the warning container
+    const warningContainer = document.querySelector("#urlWarning");
+    
+    // Check if a warning already exists
+    const existingWarning = warningContainer.querySelector(".alert.alert-danger");
+    
+    if (existingWarning) {
+        // Update the existing warning's message
+        existingWarning.textContent = message;
+    } else {
+        // Create a new warning banner
+        const warningMessage = document.createElement("div");
+        warningMessage.className = "alert alert-danger";
+        warningMessage.role = "alert";
+        warningMessage.textContent = message;
 
-    // Add Warning Banner
-    document.querySelector("#urlWarning").appendChild(warningMessage);
+        // Add the new warning banner
+        warningContainer.appendChild(warningMessage);
+    }
 }
 
 // Event listener for the submit button
