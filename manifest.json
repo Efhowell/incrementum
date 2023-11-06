@@ -1,28 +1,18 @@
 {
-  "manifest_version": 3,
-  "name": "Incrementum",
-  "version": "1.0",
-  "description": "An Educational Chrome Extension",
-  "author": "Ben Budesheim, Carina Cook, Ethan Doan, and Edward Howell",
-  "action": {
-    "default_popup": "index.html",
-    "default_title": "Incrementum"
-  },
-  "permissions": ["declarativeNetRequest", "storage"],
-  "background": {
-      "service_worker": "background.js"
-  },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
-  },
-  "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "rules1",
-        "path": "rules.json"
-      }
-    ]
+    "manifest_version": 3,
+    "name": "Incrementum",
+    "version": "1.0",
+    "description": "An Educational Chrome Extension",
+    "author": "Ben Budesheim, Carina Cook, Ethan Doan, and Edward Howell",
+    "action": {
+      "default_popup": "index.html",
+      "default_title": "Incrementum"
+    },
+    "permissions": ["webRequest", "storage"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
   }
-  
-  
 }
