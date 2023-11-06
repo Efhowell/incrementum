@@ -16,7 +16,13 @@
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
   },
   "declarative_net_request": {
-    "rule_resources": ["rules.json"]
+    "rule_resources": [
+      {
+        "id": "rules1",
+        "path": "rules.json"
+      }
+    ]
   }
+  
   
 }
