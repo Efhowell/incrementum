@@ -8,7 +8,7 @@
       "default_popup": "index.html",
       "default_title": "Incrementum"
     },
-    "permissions": ["webRequest", "storage"],
+    "permissions": ["webRequest", "webRequestBlocking", "storage"],
     "background": {
         "service_worker": "background.js"
     },
